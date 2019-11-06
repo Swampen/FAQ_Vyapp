@@ -8,6 +8,7 @@ using QandA_Vyapp.Db;
 
 namespace QandA_Vyapp.Controllers
 {
+
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
