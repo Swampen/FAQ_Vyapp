@@ -23,7 +23,6 @@ namespace FAQ_Vyapp.Db.Repository
             try
             {
                 List<Question> questions = _context.Questions.ToList();
-                List<Answer> answers = _context.Answers.ToList();
                 foreach (var q in questions)
                 {
                     questionDTOs.Add(MapQuestion(q));
@@ -42,16 +41,8 @@ namespace FAQ_Vyapp.Db.Repository
             return new QuestionDTO
             {
                 Id = entity.Id,
-                Text = entity.Text,
-            };
-        }
-
-        private AnswerDTO MapAnswer(Answer entity)
-        {
-            return new AnswerDTO
-            {
-                Id = entity.Id,
-                Text = entity.Text
+                QuestionText = entity.QuestionText,
+                AnswerText = entity.AnswerText,
             };
         }
     }

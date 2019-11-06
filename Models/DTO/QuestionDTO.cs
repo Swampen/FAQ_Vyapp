@@ -10,7 +10,7 @@ namespace QandA_Vyapp.Db.DTO
     {
         [Key]
         public int Id { get; set; }
-        public string Text { get; set; }
-        public virtual AnswerDTO Answer { get; set; }
+        public string QuestionText { get; set; }
+        public string AnswerText { get; set; }
     }
 }
