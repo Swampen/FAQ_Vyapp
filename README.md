@@ -1,1 +1,0 @@
-# QandA_Vyapp

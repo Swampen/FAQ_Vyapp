@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using QandA_Vyapp.Db;
 
 namespace QandA_Vyapp
 {
@@ -20,6 +22,11 @@ namespace QandA_Vyapp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=QandADb;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<QandADbContext>(options =>
+            {
+                options.UseSqlServer(connection);
+            });
 
             services.AddControllersWithViews();
 

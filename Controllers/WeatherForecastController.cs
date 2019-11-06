@@ -4,13 +4,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using QandA_Vyapp.Db;
 
 namespace QandA_Vyapp.Controllers
 {
     [ApiController]
-    [Route("[controller]")] 
+    [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        //private readonly QandADbContext _context;
+        //public WeatherForecastController(QandADbContext context)
+        //{
+        //    _context = context;
+        //}
+
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
