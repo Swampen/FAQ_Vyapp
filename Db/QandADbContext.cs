@@ -12,9 +12,10 @@ namespace QandA_Vyapp.Db
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=QandADb;Trusted_Connection=True;ConnectRetryCount=0");
-        }
+        public QandADbContext(DbContextOptions<QandADbContext> options) : base(options) { }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=QandADb;Trusted_Connection=True;ConnectRetryCount=0");
+        //}
     }
 }
