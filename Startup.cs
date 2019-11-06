@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using QandA_Vyapp.Db;
+using FAQ_Vyapp.Db.Repository;
 
 namespace QandA_Vyapp
 {
@@ -22,14 +23,15 @@ namespace QandA_Vyapp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=QandADb;Trusted_Connection=True;ConnectRetryCount=0";
-            services.AddDbContext<QandADbContext>(options =>
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=FAQDb;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<FAQDbContext>(options =>
             {
                 options.UseSqlServer(connection);
             });
 
+            services.AddScoped<FAQRepository>();
 
-            services.AddControllersWithViews();
+            services.AddControllers();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -62,7 +64,7 @@ namespace QandA_Vyapp
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                    pattern: "{controller}/{action}/{id?}");
             });
 
             app.UseSpa(spa =>

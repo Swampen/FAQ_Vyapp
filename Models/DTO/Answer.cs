@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace QandA_Vyapp.Db.Entity
+namespace QandA_Vyapp.Db.DTO
 {
-    public class Answer
+    public class AnswerDTO
     {
         [Key]
         public int Id { get; set; }

@@ -21,7 +21,7 @@ namespace QandA_Vyapp
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<QandADbContext>();
+                    var context = services.GetRequiredService<FAQDbContext>();
                     context.Database.EnsureCreated();
                 }
                 catch (Exception ex)

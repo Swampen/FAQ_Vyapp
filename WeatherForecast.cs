@@ -2,7 +2,7 @@ using System;
 
 namespace QandA_Vyapp
 {
-    public class WeatherForecast
+    public class Weather
     {
         public DateTime Date { get; set; }
 
