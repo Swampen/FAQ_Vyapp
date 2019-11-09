@@ -3,7 +3,7 @@
 const answer = (props) => {
     return (
         <div>
-            <p>{props.text}</p>
+            <b>{props.text}</b>
         </div>
     );
 }

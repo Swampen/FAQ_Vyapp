@@ -12,6 +12,7 @@ const questionsAndAnswers = props =>
                 />
                 <Answer
                     text={q.answerText} />
+                <hr/>
             </div>
         );
     });
