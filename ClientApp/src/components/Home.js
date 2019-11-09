@@ -29,7 +29,7 @@ export class Home extends Component {
                 <h1>Hello, world!</h1>
                 {faqs}
             </div >
-        );
+        )
     }
 
     async populateFAQ() {
