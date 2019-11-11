@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import QuestionAndAnswers from './FAQ/QuestionsAndAnswers'
+import { Spinner } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 export class Home extends Component {
     state = {
@@ -20,7 +24,7 @@ export class Home extends Component {
     render() {
 
 
-        let faqs = null;
+        let faqs = (<Spinner/>);
 
         if (this.state.isFetched) {
             faqs = (
@@ -36,6 +40,7 @@ export class Home extends Component {
             <div>
                 <h1>Vy FAQ</h1>
                 {faqs}
+                <footer className="footer">This is the footer</footer>
             </div >
         )
     }

@@ -2,7 +2,7 @@
 import Question from './Question/Question';
 import Answer from './Answer/Answer';
 import Rating from './Rating/Rating';
-import { Accordion, Card, Row, Container, Col, } from 'react-bootstrap';
+import { Accordion, Card, Row, Container, Col, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
@@ -11,8 +11,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class questionsAndAnswers extends Component {
 
+    constructor(props) {
+        super(props)
+    }
+
     state = {
-        clicked: []
+        clicked: [],
+        rated: []
     }
 
     componentDidMount() {
@@ -20,14 +25,26 @@ class questionsAndAnswers extends Component {
         for (let i of this.props.faq) {
             list.push(false);
         }
-        this.setState({ clicked: list });
+        this.setState({ clicked: list, rated: list });
     }
 
     ratingHandler(id, rating) {
-        console.log("rating: " + rating)
+        console.log(this.props.faq)
         axios.put('/faq/' + id + "?rating=" + rating,
         ).then((response) => {
-            console.log(response.data)
+            const clickedIndex = this.props.faq.findIndex(q => {
+                return q.id === id;
+            });
+
+            let rated = this.state.rated[clickedIndex]
+
+            rated = !rated;
+            const list = [...this.state.rated];
+            list[clickedIndex] = rated;
+
+            this.setState({
+                rated: list
+            });
         })
     }
 
@@ -71,9 +88,18 @@ class questionsAndAnswers extends Component {
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey={q.id}>
                                 <Card.Body>
-                                    <Answer
-                                        text={q.answerText} />
-                                    <Rating click={this.ratingHandler} qId={q.id} text={q.rating} />
+                                    <Answer text={q.answerText} />
+                                    <Row>
+                                        {this.state.rated[i] ?
+                                            <Col xs={4}>
+                                                <Alert variant="primary">Thank you for your feedback!</Alert>
+                                            </Col>
+                                            :
+                                            <Col>
+                                                <Rating click={this.ratingHandler.bind(this)} qId={q.id} text={q.rating} />
+                                            </Col>
+                                        }
+                                    </Row>
                                 </Card.Body>
                             </Accordion.Collapse>
                         </Card>
