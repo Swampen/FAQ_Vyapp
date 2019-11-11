@@ -23,6 +23,14 @@ class questionsAndAnswers extends Component {
         this.setState({ clicked: list });
     }
 
+    ratingHandler(id, rating) {
+        console.log("rating: " + rating)
+        axios.put('/faq/' + id + "?rating=" + rating,
+        ).then((response) => {
+            console.log(response.data)
+        })
+    }
+
     questionClickedHandler(id) {
         const clickedIndex = this.props.faq.findIndex(q => {
             return q.id === id;
@@ -65,7 +73,7 @@ class questionsAndAnswers extends Component {
                                 <Card.Body>
                                     <Answer
                                         text={q.answerText} />
-                                    <Rating text={q.rating}/>
+                                    <Rating click={this.ratingHandler} qId={q.id} text={q.rating} />
                                 </Card.Body>
                             </Accordion.Collapse>
                         </Card>

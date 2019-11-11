@@ -38,7 +38,18 @@ namespace FAQ_Vyapp.Db.Repository
 
         public int ChangeRating(int id, int rating)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var question = _context.Questions.Find(id);
+                question.Rating += rating;
+                _context.SaveChanges();
+                return rating;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return 0;
+            }
         }
 
         public QuestionDTO MapQuestion(Question entity)
