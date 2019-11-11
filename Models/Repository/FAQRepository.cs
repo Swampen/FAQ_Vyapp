@@ -36,6 +36,11 @@ namespace FAQ_Vyapp.Db.Repository
             return questionDTOs;
         }
 
+        public int ChangeRating(int id, int rating)
+        {
+            throw new NotImplementedException();
+        }
+
         public QuestionDTO MapQuestion(Question entity)
         {
             return new QuestionDTO
@@ -43,6 +48,7 @@ namespace FAQ_Vyapp.Db.Repository
                 Id = entity.Id,
                 QuestionText = entity.QuestionText,
                 AnswerText = entity.AnswerText,
+                Rating = entity.Rating,
             };
         }
     }

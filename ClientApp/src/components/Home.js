@@ -4,14 +4,22 @@ import QuestionAndAnswers from './FAQ/QuestionsAndAnswers'
 export class Home extends Component {
     state = {
         faq: [],
-        isFetched: false
+        isFetched: false,
     };
 
     componentDidMount() {
         this.populateFAQ();
     }
 
+    async populateFAQ() {
+        const response = await fetch('faq');
+        const data = await response.json();
+        this.setState({ faq: data, isFetched: true });
+    }
+
     render() {
+
+
         let faqs = null;
 
         if (this.state.isFetched) {
@@ -26,16 +34,9 @@ export class Home extends Component {
 
         return (
             <div>
-                <h1>Hello, world!</h1>
+                <h1>Vy FAQ</h1>
                 {faqs}
             </div >
         )
     }
-
-    async populateFAQ() {
-        const response = await fetch('faq');
-        const data = await response.json();
-        this.setState({ faq: data, isFetched: true });
-    }
-
 }

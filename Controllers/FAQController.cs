@@ -22,5 +22,9 @@ namespace FAQ_Vyapp.Controllers
         [HttpGet]
         public IEnumerable<QuestionDTO> Get() =>
             _repository.GetQuestions();
+
+        [HttpPut("{id}")]
+        public int Put(int id, int rating) =>
+            _repository.ChangeRating(id, rating);
     }
 }

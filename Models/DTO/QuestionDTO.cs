@@ -12,5 +12,7 @@ namespace QandA_Vyapp.Db.DTO
         public int Id { get; set; }
         public string QuestionText { get; set; }
         public string AnswerText { get; set; }
+        public int Rating { get; set; }
+
     }
 }
