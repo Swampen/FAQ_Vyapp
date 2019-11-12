@@ -1,19 +1,13 @@
 ﻿import React, { Component } from 'react';
-import Question from './Question/Question';
-import Answer from './Answer/Answer';
-import Rating from './Rating/Rating';
+
+import Box from './Box/Box';
 import { Accordion, Card, Row, Container, Col, Alert } from 'react-bootstrap';
 import axios from 'axios';
-import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class questionsAndAnswers extends Component {
-    state = {
-        clicked: [],
-        rated: []
-    }
 
     componentDidMount() {
         let list = [];
@@ -64,40 +58,14 @@ class questionsAndAnswers extends Component {
         return this.props.faq.map((q, i) => {
             return (
                 <Container key={q.id}>
-                    <Accordion>
-                        <Card>
-                            <Accordion.Toggle onClick={() => { this.questionClickedHandler(q.id) }} as={Card.Header} eventKey={q.id}>
-                                <Row>
-                                    <Col>
-                                        <Question
-                                            text={q.questionText}
-                                        />
-                                    </Col>
-                                    <Col xs={1}>
-                                        <div id={"a" + q.id}>
-                                            {this.state.clicked[i] ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
-                                        </div>
-                                    </Col>
-                                </Row>
-                            </Accordion.Toggle>
-                            <Accordion.Collapse eventKey={q.id}>
-                                <Card.Body>
-                                    <Answer text={q.answerText} />
-                                    <Row>
-                                        {this.state.rated[i] ?
-                                            <Col xs={4}>
-                                                <Alert variant="primary">Thank you for your feedback!</Alert>
-                                            </Col>
-                                            :
-                                            <Col>
-                                                <Rating click={this.ratingHandler.bind(this)} qId={q.id} text={q.rating} />
-                                            </Col>
-                                        }
-                                    </Row>
-                                </Card.Body>
-                            </Accordion.Collapse>
-                        </Card>
-                    </Accordion>
+                    <Box
+                        qid={q.id}
+                        questionText={q.questionText}
+                        answerText={q.answerText}
+                        questionClicked={this.questionClickedHandler}
+                        rating={q.rating}
+                        ratingClick={this.ratingHandler}
+                    />
                 </Container >)
         });
     }

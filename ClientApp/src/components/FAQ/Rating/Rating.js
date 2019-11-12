@@ -6,13 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Rating = props => {
-    useEffect(() => {
-
-        return () => {
-
-        };
-    }, []);
-
     const [mouseOverDown, setMouseOverDown] = useState(false);
     const [mouseOverUp, setMouseOverUp] = useState(false);
 

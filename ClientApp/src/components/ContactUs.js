@@ -1,6 +1,6 @@
 ﻿import React, { Component } from "react";
 import { Container, Col, Row } from 'react-bootstrap';
-import ContactForm from './FAQ/Form/Form';
+import ContactForm from './FAQ/ContactForm/ContactForm';
 import axios from "axios";
 
 

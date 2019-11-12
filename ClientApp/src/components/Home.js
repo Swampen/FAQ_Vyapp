@@ -42,7 +42,6 @@ export class Home extends Component {
             <div>
                 <h1>Vy FAQ</h1>
                 {faqs}
-                <footer className="footer">This is the footer</footer>
             </div >
         )
     }
