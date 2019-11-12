@@ -24,7 +24,7 @@ export class Home extends Component {
     render() {
 
 
-        let faqs = (<Spinner/>);
+        let faqs = null;
 
         if (this.state.isFetched) {
             faqs = (
@@ -34,6 +34,8 @@ export class Home extends Component {
                     />}
                 </div>
             );
+        } else {
+            faqs = (<Spinner />)
         }
 
         return (

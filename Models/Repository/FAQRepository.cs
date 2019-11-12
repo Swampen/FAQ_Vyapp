@@ -1,4 +1,6 @@
-﻿using QandA_Vyapp.Db;
+﻿using FAQ_Vyapp.Models.DTO;
+using FAQ_Vyapp.Models.Entity;
+using QandA_Vyapp.Db;
 using QandA_Vyapp.Db.DTO;
 using QandA_Vyapp.Db.Entity;
 using System;
@@ -36,6 +38,38 @@ namespace FAQ_Vyapp.Db.Repository
             return questionDTOs;
         }
 
+        internal IEnumerable<NewQuestionDTO> GetNewQuestions()
+        {
+            List<NewQuestionDTO> newQuestionDTOs = new List<NewQuestionDTO>();
+            try
+            {
+                List<NewQuestion> newQuestions = _context.NewQuestions.ToList();
+                foreach (var q in newQuestions)
+                {
+                    newQuestionDTOs.Add(MapNewQuestion(q));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                newQuestionDTOs = null;
+            }
+            return newQuestionDTOs;
+        }
+
+        internal bool addNewQuestion(NewQuestionDTO dto)
+        {
+            try{
+                NewQuestion q = MapNewQuestionDTO(dto);
+                _context.NewQuestions.Add(q);
+                _context.SaveChanges();
+                return true;
+            }catch (Exception e){
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+
         public int ChangeRating(int id, int rating)
         {
             try
@@ -60,6 +94,26 @@ namespace FAQ_Vyapp.Db.Repository
                 QuestionText = entity.QuestionText,
                 AnswerText = entity.AnswerText,
                 Rating = entity.Rating,
+            };
+        }
+
+        public NewQuestionDTO MapNewQuestion(NewQuestion entity)
+        {
+            return new NewQuestionDTO
+            {
+                Name = entity.Name,
+                Email = entity.Email,
+                Question = entity.Question
+            };
+        }
+
+        public NewQuestion MapNewQuestionDTO(NewQuestionDTO dto)
+        {
+            return new NewQuestion
+            {
+                Name = dto.Name,
+                Email = dto.Email,
+                Question = dto.Question
             };
         }
     }

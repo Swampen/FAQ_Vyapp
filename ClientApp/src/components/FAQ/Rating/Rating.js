@@ -7,11 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Rating = props => {
     useEffect(() => {
-        console.log("[Rating.js] useEffect");
-        //Http request...
 
         return () => {
-            console.log("[Rating.js] cleanup un useEffect");
+
         };
     }, []);
 

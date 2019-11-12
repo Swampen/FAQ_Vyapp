@@ -1,16 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using FAQ_Vyapp.Models.Entity;
 using QandA_Vyapp.Db.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using QandA_Vyapp.Db.DTO;
 
 namespace QandA_Vyapp.Db
 {
     public class FAQDbContext : DbContext
     {
         public DbSet<Question> Questions { get; set; }
+        public DbSet<NewQuestion> NewQuestions { get; set; }
 
         public FAQDbContext(DbContextOptions<FAQDbContext> options) : base(options)
         {

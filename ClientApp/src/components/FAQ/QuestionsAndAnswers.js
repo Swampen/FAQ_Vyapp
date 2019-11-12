@@ -10,11 +10,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class questionsAndAnswers extends Component {
-
-    constructor(props) {
-        super(props)
-    }
-
     state = {
         clicked: [],
         rated: []
@@ -22,9 +17,9 @@ class questionsAndAnswers extends Component {
 
     componentDidMount() {
         let list = [];
-        for (let i of this.props.faq) {
-            list.push(false);
-        }
+        this.props.faq.map(() => {
+            list.push(false)
+        })
         this.setState({ clicked: list, rated: list });
     }
 
@@ -66,7 +61,6 @@ class questionsAndAnswers extends Component {
 
 
     render() {
-
         return this.props.faq.map((q, i) => {
             return (
                 <Container key={q.id}>
