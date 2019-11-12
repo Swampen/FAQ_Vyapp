@@ -39,7 +39,7 @@ const Box = (props) => {
                                 </Col>
                                 :
                                 <Col>
-                                    <Rating onClick={() => setRated(true)} click={props.rateClicked} qId={props.qid} text={props.rating} />
+                                    <Rating onClick={() => setRated(true)} click={props.rateClicked } qId={props.qid} text={props.rating} />
                                 </Col>
                             }
                         </Row>
