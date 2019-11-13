@@ -1,6 +1,5 @@
 ﻿import React, { Component } from "react";
-import { Container } from "react-bootstrap";
-import Question from "./FAQ/Question/Question"
+import Box from "./FAQ/Box/Box"
 
 class UnasweredQuestions extends Component {
     state = {
@@ -23,14 +22,21 @@ class UnasweredQuestions extends Component {
         console.log(this.state.questions)
 
         return (
-            <Container>
+            <div>
                 <h1>Unaswered Questions</h1>
-                {
+                <br />
+                <div className="BoxContainer">{
                     this.state.questions.map((q, i) => {
-                        return (<Question text={q.question} />)
+                        return (<Box
+                            key={i}
+                            qid={i}
+                            questionText={q.question}
+                            answerText={"Asked by: " + q.name + "\nDate: " + q.date + "\nTime: " + q.time + "\nEmail: " + q.email}
+                            unanswered={true} />)
                     })
                 }
-            </Container >
+                </div >
+            </div >
         )
     }
 }

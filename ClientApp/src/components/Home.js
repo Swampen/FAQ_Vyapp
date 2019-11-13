@@ -28,11 +28,9 @@ export class Home extends Component {
 
         if (this.state.isFetched) {
             faqs = (
-                <div>
-                    {< QuestionAndAnswers
-                        faq={this.state.faq}
-                    />}
-                </div>
+                < QuestionAndAnswers
+                    faq={this.state.faq}
+                />
             );
         } else {
             faqs = (<Spinner />)
@@ -40,7 +38,8 @@ export class Home extends Component {
 
         return (
             <div>
-                <h1>Vy FAQ</h1>
+                <h1>Frequently Asked Questions</h1>
+                <br />
                 {faqs}
             </div >
         )

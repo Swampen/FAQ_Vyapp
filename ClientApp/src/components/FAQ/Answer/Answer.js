@@ -3,7 +3,17 @@
 const answer = (props) => {
     return (
         <div>
-            <p>{props.text}</p>
+            <p>{
+                props.text.split('\n').map(function (item, key) {
+                    return (
+                        <span key={key}>
+                            {item}
+                            <br />
+                        </span>
+                    )
+                })
+            }
+            </p>
         </div>
     );
 }

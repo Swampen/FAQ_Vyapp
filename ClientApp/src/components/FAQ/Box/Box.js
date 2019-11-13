@@ -9,12 +9,13 @@ import Rating from '../Rating/Rating';
 
 
 const Box = (props) => {
+
     const [clicked, setClicked] = useState(false);
     const [rated, setRated] = useState(false);
 
     return (
         <Accordion>
-            <Card>
+            <Card border="success" >
                 <Accordion.Toggle onClick={() => setClicked(!clicked)} as={Card.Header} eventKey={props.qid}>
                     <Row>
                         <Col>
@@ -32,17 +33,17 @@ const Box = (props) => {
                 <Accordion.Collapse eventKey={props.qid}>
                     <Card.Body>
                         <Answer text={props.answerText} />
-                        <Row>
-                            {rated ?
-                                <Col xs={4}>
+                        {!props.unanswered ? <Row>
+                            <Col xs={5}>
+                                {rated ?
                                     <Alert variant="primary">Thank you for your feedback!</Alert>
-                                </Col>
-                                :
-                                <Col>
-                                    <Rating onClick={() => setRated(true)} click={props.rateClicked } qId={props.qid} text={props.rating} />
-                                </Col>
-                            }
-                        </Row>
+                                    :
+                                    <Rating clicked={setRated} click={props.ratingClicked} qId={props.qid} text={props.rating} />
+                                }
+                            </Col>
+                        </Row> : null
+                        }
+                        
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>

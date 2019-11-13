@@ -7,8 +7,25 @@ code {
   color: #E01A76;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+#divCont {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    height: auto;
+    color: white;
+    background-color: #383E42;
+}
+
+.footer > div {
+    height: auto;
+    padding: 1em;
+    margin: 0px;
+    background-color: #383E42;
+}
+
+.BoxContainer:last-child {
+    border-bottom: 1px solid #28a745 !important;
 }

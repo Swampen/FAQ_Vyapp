@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from 'reactstrap';
+import { Container } from 'react-bootstrap';
 import { NavMenu } from './NavMenu';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,12 +9,11 @@ export class Layout extends Component {
 
     render() {
         return (
-            <div>
+            <div id="divCont">
                 <NavMenu />
                 <Container>
                     {this.props.children}
                 </Container>
-                <footer className="footer mt-auto py-3">This is the footer</footer>
             </div>
         );
     }

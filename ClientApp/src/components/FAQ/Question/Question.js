@@ -2,9 +2,7 @@
 
 const question = (props) => {
     return (
-        <div>
-            <b>{props.text}</b>
-        </div>
+        <b>{props.text}</b>
     );
 }
 
