@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FAQ_Vyapp.Db.DTO;
 using FAQ_Vyapp.Db.Repository;
 using Microsoft.AspNetCore.Mvc;
-using QandA_Vyapp.Db.DTO;
+using System.Collections.Generic;
 
 namespace FAQ_Vyapp.Controllers
 {

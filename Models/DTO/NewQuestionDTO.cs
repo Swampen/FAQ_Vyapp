@@ -10,5 +10,7 @@ namespace FAQ_Vyapp.Models.DTO
         public string Name { get; set; }
         public string Email { get; set; }
         public string Question { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
     }
 }

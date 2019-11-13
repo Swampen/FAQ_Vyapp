@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using FAQ_Vyapp.Models.Entity;
-using QandA_Vyapp.Db.Entity;
+using FAQ_Vyapp.Db.Entity;
+using System;
 
-namespace QandA_Vyapp.Db
+namespace FAQ_Vyapp.Db
 {
     public class FAQDbContext : DbContext
     {
@@ -73,6 +74,17 @@ namespace QandA_Vyapp.Db
                     Rating = -2
                 }
             );
+
+            modelBuilder.Entity<NewQuestion>().HasData(
+            new NewQuestion
+            {
+                Id = 1,
+                Name = "Ola Normann",
+                Email = "email@example.com",
+                Question = "How can I find my ticket after the purchase?",
+                Date = DateTime.Now
+            }
+            ); ; 
         }
     }
 }

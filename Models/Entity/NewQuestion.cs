@@ -13,5 +13,7 @@ namespace FAQ_Vyapp.Models.Entity
         public string Name { get; set; }
         public string Email { get; set; }
         public string Question { get; set; }
+        public DateTime Date { get; set; }
+
     }
 }

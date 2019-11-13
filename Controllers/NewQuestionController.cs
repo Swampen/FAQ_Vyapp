@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FAQ_Vyapp.Db.Repository;
+﻿using FAQ_Vyapp.Db.Repository;
 using FAQ_Vyapp.Models.DTO;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using QandA_Vyapp.Db;
-using QandA_Vyapp.Db.Entity;
+using System.Collections.Generic;
+
 
 namespace FAQ_Vyapp.Controllers
 {
@@ -26,11 +20,11 @@ namespace FAQ_Vyapp.Controllers
         [HttpGet]
         public IEnumerable<NewQuestionDTO> Get() =>
             _repository.GetNewQuestions();
-        
+
         [HttpPost]
         public bool Post(NewQuestionDTO newQuestion) =>
             _repository.addNewQuestion(newQuestion);
-        
 
-    }   
+
+    }
 }

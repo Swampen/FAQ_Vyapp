@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace QandA_Vyapp.Db.Entity
+namespace FAQ_Vyapp.Db.Entity
 {
     public class Question
     {

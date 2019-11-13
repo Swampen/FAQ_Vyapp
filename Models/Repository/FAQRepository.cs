@@ -1,12 +1,10 @@
-﻿using FAQ_Vyapp.Models.DTO;
+﻿using FAQ_Vyapp.Db.DTO;
+using FAQ_Vyapp.Db.Entity;
+using FAQ_Vyapp.Models.DTO;
 using FAQ_Vyapp.Models.Entity;
-using QandA_Vyapp.Db;
-using QandA_Vyapp.Db.DTO;
-using QandA_Vyapp.Db.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace FAQ_Vyapp.Db.Repository
 {
@@ -103,7 +101,9 @@ namespace FAQ_Vyapp.Db.Repository
             {
                 Name = entity.Name,
                 Email = entity.Email,
-                Question = entity.Question
+                Question = entity.Question,
+                Date = entity.Date.ToString("dd/MM/yyyy"),
+                Time = entity.Date.ToString("hh:mm"),
             };
         }
 
@@ -113,7 +113,8 @@ namespace FAQ_Vyapp.Db.Repository
             {
                 Name = dto.Name,
                 Email = dto.Email,
-                Question = dto.Question
+                Question = dto.Question,
+                Date = DateTime.Now
             };
         }
     }

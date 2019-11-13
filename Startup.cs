@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using QandA_Vyapp.Db;
 using FAQ_Vyapp.Db.Repository;
+using FAQ_Vyapp.Db;
 
-namespace QandA_Vyapp
+namespace FAQ_Vyapp
 {
     public class Startup
     {
