@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FAQ_Vyapp.Db.Entity;
 using FAQ_Vyapp.Models.Entity;
-using FAQ_Vyapp.Db.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace FAQ_Vyapp.Db
@@ -84,7 +84,9 @@ namespace FAQ_Vyapp.Db
                 Question = "How can I find my ticket after the purchase?",
                 Date = DateTime.Now
             }
-            ); ; 
+            ); ;
         }
+
+        public DbSet<FAQ_Vyapp.Db.DTO.QuestionDTO> QuestionDTO { get; set; }
     }
 }

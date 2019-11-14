@@ -10,17 +10,30 @@ class ContactUs extends Component {
         Name: '',
         Email: '',
         Question: '',
-        failed: false
+        failed: false,
+        errorMessage: []
     }
 
     submitHandler = event => {
         event.preventDefault();
         axios.post('/newquestion', this.state
         ).then((response) => {
+
+
             if (response.data === true) {
                 window.location.href = "/unasweredquestions"
             } else {
                 this.setState({ failed: true })
+                this.setState({ errorMessage: "Something wrong happened.Please try again" })
+            }
+        }).catch(error => {
+            if (error.response.status === 400) {
+                this.setState({ failed: true })
+                this.setState({ errorMessage: [] })
+                let errors = error.response.data.errors
+                for (let key in errors) {
+                    this.setState({ errorMessage: [...errors[key]] })
+                }
             }
         })
     }
@@ -33,10 +46,10 @@ class ContactUs extends Component {
         return (
             <div>
                 <h1>Contact Us</h1>
-                <br/>
+                <br />
                 {this.state.failed ?
                     <Alert variant="danger" dismissible onClose={() => this.setState({ failed: false })}>
-                        Something wrong happened. Please try again
+                        {this.state.errorMessage}
                     </Alert>
                     : null}
                 <Row>

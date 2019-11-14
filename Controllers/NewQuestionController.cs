@@ -24,7 +24,5 @@ namespace FAQ_Vyapp.Controllers
         [HttpPost]
         public bool Post(NewQuestionDTO newQuestion) =>
             _repository.addNewQuestion(newQuestion);
-
-
     }
 }

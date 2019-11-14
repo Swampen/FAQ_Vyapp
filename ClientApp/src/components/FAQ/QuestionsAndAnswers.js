@@ -15,7 +15,7 @@ class questionsAndAnswers extends Component {
 
     render() {
         return (<div className="BoxContainer">
-            {this.props.faq.map((q, i) => {
+            {this.props.faq.map(q => {
                 return (
                     <Box
                         key={q.id}

@@ -1,12 +1,12 @@
+using FAQ_Vyapp.Db;
+using FAQ_Vyapp.Db.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using FAQ_Vyapp.Db.Repository;
-using FAQ_Vyapp.Db;
 
 namespace FAQ_Vyapp
 {

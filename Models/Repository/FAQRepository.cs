@@ -57,12 +57,15 @@ namespace FAQ_Vyapp.Db.Repository
 
         internal bool addNewQuestion(NewQuestionDTO dto)
         {
-            try{
+            try
+            {
                 NewQuestion q = MapNewQuestionDTO(dto);
                 _context.NewQuestions.Add(q);
                 _context.SaveChanges();
                 return true;
-            }catch (Exception e){
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine(e);
                 return false;
             }
