@@ -86,7 +86,5 @@ namespace FAQ_Vyapp.Db
             }
             ); ;
         }
-
-        public DbSet<FAQ_Vyapp.Db.DTO.QuestionDTO> QuestionDTO { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 
 namespace FAQ_Vyapp
 {
@@ -69,6 +70,12 @@ namespace FAQ_Vyapp
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "ClientApp";
+
+                if (!Directory.Exists("ClientApp/node_modules"))
+                {
+                    spa.UseReactDevelopmentServer(npmScript: "install");
+
+                }
 
                 if (env.IsDevelopment())
                 {

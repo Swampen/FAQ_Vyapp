@@ -58,9 +58,9 @@ export class NavMenu extends Component {
 
                                 <NavItem>
                                     <NavLink tag={Link}
-                                        className={this.state.active === "/unasweredquestions" ? "active" : "text-dark"}
-                                        onClick={() => this.linkClickedHandler("/unasweredquestions")}
-                                        to="/UnasweredQuestions">Unasnwered Questions
+                                        className={this.state.active === "/unansweredquestions" ? "active" : "text-dark"}
+                                        onClick={() => this.linkClickedHandler("/unansweredquestions")}
+                                        to="/UnansweredQuestions">Unanswered Questions
                                         </NavLink>
                                 </NavItem>
                             </ul>
