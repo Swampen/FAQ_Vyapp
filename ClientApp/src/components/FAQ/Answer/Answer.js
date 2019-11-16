@@ -14,6 +14,7 @@ const answer = (props) => {
                 })
             }
             </p>
+            {props.children}
         </div>
     );
 }
