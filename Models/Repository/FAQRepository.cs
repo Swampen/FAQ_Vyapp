@@ -106,7 +106,7 @@ namespace FAQ_Vyapp.Db.Repository
                 Email = entity.Email,
                 Question = entity.Question,
                 Date = entity.Date.ToString("dd/MM/yyyy"),
-                Time = entity.Date.ToString("hh:mm"),
+                Time = entity.Date.ToString("HH:mm"),
             };
         }
 
