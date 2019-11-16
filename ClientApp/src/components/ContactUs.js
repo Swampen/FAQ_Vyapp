@@ -21,7 +21,7 @@ class ContactUs extends Component {
 
 
             if (response.data === true) {
-                window.location.href = "/unasweredquestions"
+                window.location.href = "/unansweredquestions"
             } else {
                 this.setState({ failed: true })
                 this.setState({ errorMessage: "Something wrong happened.Please try again" })
