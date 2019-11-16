@@ -8,3 +8,9 @@ For å kunne kjøre løsningen så må man gjøre dette:
 1. Rebuilde Solution i visual studio for å få installert alle node packages.
 2. Kjøre løsningen.
 	2.2 Hvis ingen data blir vist på nettsiden, må man kjøre løsningen en gang til. Dette er fordi databasen ikke alltid blir opprettet første gang man kjører løsningen.
+
+
+Dependencies i Visual Studio
+1. Entity Framework Core
+2. Entity Framework Core SQL Server
+3. Entity Framework Core Tools
