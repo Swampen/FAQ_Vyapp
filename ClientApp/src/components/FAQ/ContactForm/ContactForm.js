@@ -27,6 +27,7 @@ const contactForm = (props) => {
                 <FormControl
                     required
                     id="Email"
+                    type="email"
                     onChange={props.change}
                     placeholder="example@email.com"
                     aria-label="Email"

@@ -49,7 +49,7 @@ class ContactUs extends Component {
                 <br />
                 {this.state.failed ?
                     <Alert variant="danger" dismissible onClose={() => this.setState({ failed: false })}>
-                        {this.state.errorMessage}
+                        {this.state.errorMessage.map((s, i) => <React.Fragment key={i}>{s}<br /></React.Fragment>)}
                     </Alert>
                     : null}
                 <Row>
