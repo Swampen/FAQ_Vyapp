@@ -4,6 +4,7 @@ namespace FAQ_Vyapp.Models.DTO
 {
     public class NewQuestionDTO
     {
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

@@ -38,7 +38,30 @@ namespace FAQ_Vyapp.Db.Repository
 
         internal bool AnswerQuestion(int id, string answer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                NewQuestion question = _context.NewQuestions.Find(id);
+                Question answeredQuestion = MakeAnswer(question, answer);
+                _context.Questions.Add(answeredQuestion);
+                _context.NewQuestions.Remove(question);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+
+        private Question MakeAnswer(NewQuestion question, string answer)
+        {
+            return new Question
+            {
+                QuestionText = question.Question,
+                AnswerText = answer,
+                Rating = 0
+            };
         }
 
         internal IEnumerable<NewQuestionDTO> GetNewQuestions()
@@ -107,6 +130,7 @@ namespace FAQ_Vyapp.Db.Repository
         {
             return new NewQuestionDTO
             {
+                Id = entity.Id,
                 Name = entity.Name,
                 Email = entity.Email,
                 Question = entity.Question,
