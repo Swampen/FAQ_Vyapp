@@ -36,6 +36,11 @@ namespace FAQ_Vyapp.Db.Repository
             return questionDTOs;
         }
 
+        internal bool AnswerQuestion(int id, string answer)
+        {
+            throw new NotImplementedException();
+        }
+
         internal IEnumerable<NewQuestionDTO> GetNewQuestions()
         {
             List<NewQuestionDTO> newQuestionDTOs = new List<NewQuestionDTO>();
