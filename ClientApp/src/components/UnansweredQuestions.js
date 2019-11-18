@@ -1,6 +1,7 @@
 ﻿import React, { Component } from "react";
 import Box from "./FAQ/Box/Box"
 import { Spinner } from 'react-bootstrap';
+import axios from "axios";
 
 class UnasweredQuestions extends Component {
     state = {
@@ -21,14 +22,12 @@ class UnasweredQuestions extends Component {
 
     submitHandler = event => {
         event.preventDefault();
-        console.log(event)
-        return;
-        axios.put('/newquestion'
+        const id = event.target.id
+        const data = event.target.querySelector('textarea').value
+        axios.put('/newquestion/' + id + "?answer=" + data
         ).then((response) => {
-
-
             if (response.data === true) {
-                window.location.href = "/unansweredquestions"
+                window.location.href = "/UnansweredQuestions"
             } else {
                 this.setState({ failed: true })
                 this.setState({ errorMessage: "Something wrong happened.Please try again" })
@@ -46,22 +45,26 @@ class UnasweredQuestions extends Component {
     }
 
     render() {
-
+        console.log(this.state.questions)
         let qs = (<Spinner animation="border" />)
 
         if (this.state.isFetched) {
-            qs = (<div className="BoxContainer">{
-                this.state.questions.map((q, i) => {
-                    return (<Box
-                        key={i}
-                        qid={i}
-                        questionText={q.question}
-                        answerText={"Asked by: " + q.name + "\nDate: " + q.date + "\nTime: " + q.time + "\nEmail: " + q.email}
-                        unanswered={true}
-                        submit={this.submitHandler}/>)
-                })
+            if (this.state.questions.length === 0) {
+                qs = (<h4>All questions has been answered</h4>)
+            } else {
+                qs = (<div className="BoxContainer">{
+                    this.state.questions.map((q, i) => {
+                        return (<Box
+                            key={i}
+                            qid={q.id}
+                            questionText={q.question}
+                            answerText={"Asked by: " + q.name + "\nDate: " + q.date + "\nTime: " + q.time + "\nEmail: " + q.email}
+                            unanswered={true}
+                            submit={this.submitHandler} />)
+                    })
+                }
+                </div >)
             }
-            </div >)
         }
 
         return (

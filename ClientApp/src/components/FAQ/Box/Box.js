@@ -1,11 +1,10 @@
 ﻿import React, { useState } from "react";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
-import { Accordion, Card, Row, Col, Alert, Button} from 'react-bootstrap';
+import { Accordion, Card, Row, Col, Alert, Button , FormControl} from 'react-bootstrap';
 
 import Question from '../Question/Question';
 import Answer from '../Answer/Answer';
 import Rating from '../Rating/Rating';
-import InputAnswer from '../InputAnswer/InputAnswer';
 
 
 
@@ -44,9 +43,10 @@ const Box = (props) => {
                                     }
                                 </Col>
                                 : <Col>
-                                    <form>
-                                        <InputAnswer change={props.change} />
-                                        <Button variant="success">Submit Answer</Button>
+                                    <form id={props.qid} onSubmit={props.submit}>
+                                        <FormControl as="textarea" placeholder="Answer:" />
+                                        <br/>
+                                        <Button variant="success" type="submit">Submit Answer</Button>
                                     </form>
                                 </Col>
                             }
